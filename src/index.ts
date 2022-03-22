@@ -232,7 +232,7 @@ async function handleChangeLock(request: any, lock: boolean) {
   const apiUrl = scanResult.Item.apiUrl as string;
   const apiKey = scanResult.Item.apiKey as string;
 
-  await axios.post(apiUrl,
+  await axios.put(apiUrl,
     { 'state': lock ? 'LOCK' : 'UNLOCK' },
     { headers: { 'Authorization': `Api-Key ${apiKey}` } }
   );
