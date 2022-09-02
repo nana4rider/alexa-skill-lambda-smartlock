@@ -2,7 +2,7 @@
 Alexa Smart Home Skill Smart Lock
 
 ## 概要
-[jema-smartlock](https://github.com/nana4rider/jema-smartlock)のRESTful APIと接続し、
+[jema-web-api](https://github.com/nana4rider/jema-web-api)のRESTful APIと接続し、
 Alexaの[ロックデバイス](https://developer.amazon.com/ja-JP/docs/alexa/smarthome/build-smart-home-skills-for-locks.html)として認識させるプログラムです。
 
 ## フロー
@@ -38,7 +38,7 @@ sequenceDiagram
     "S": "デバイスID(任意)"
   },
   "apiUrl": {
-    "S": "jema-smartlockのRESTful APIのURL"
+    "S": "jema-web-apiのRESTful APIのURL"
   },
   "authorization": {
     "S": "Authorizationヘッダに設定する値"
