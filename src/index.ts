@@ -175,7 +175,7 @@ async function handleReportState(request: any) {
   const apiUrl = scanResult.Item.apiUrl as string;
   const authorization = scanResult.Item.authorization as string;
 
-  const reponse = await axios.get<{state: boolean}>(apiUrl, {
+  const reponse = await axios.get<{active: boolean}>(apiUrl, {
     headers: { 'Authorization': authorization },
   });
 
@@ -199,7 +199,7 @@ async function handleReportState(request: any) {
         {
           'namespace': 'Alexa.LockController',
           'name': 'lockState',
-          'value': reponse.data.state ? 'LOCKED' : 'UNLOCKED',
+          'value': reponse.data.active ? 'LOCKED' : 'UNLOCKED',
           'timeOfSample': now,
           'uncertaintyInMilliseconds': 0
         }
@@ -232,7 +232,7 @@ async function handleChangeLock(request: any, lock: boolean) {
   const authorization = scanResult.Item.authorization as string;
 
   await axios.put(apiUrl,
-    { 'state': lock },
+    { 'active': lock },
     { headers: { 'Authorization': authorization } }
   );
 
