@@ -173,10 +173,10 @@ async function handleReportState(request: any) {
   }
 
   const apiUrl = scanResult.Item.apiUrl as string;
-  const apiKey = scanResult.Item.apiKey as string;
+  const authorization = scanResult.Item.authorization as string;
 
   const reponse = await axios.get(apiUrl, {
-    headers: { 'Authorization': `Api-Key ${apiKey}` },
+    headers: { 'Authorization': authorization },
   });
 
   const lock = reponse.data.state === 'LOCK';
@@ -230,11 +230,11 @@ async function handleChangeLock(request: any, lock: boolean) {
   }
 
   const apiUrl = scanResult.Item.apiUrl as string;
-  const apiKey = scanResult.Item.apiKey as string;
+  const authorization = scanResult.Item.authorization as string;
 
   await axios.put(apiUrl,
     { 'state': lock ? 'LOCK' : 'UNLOCK' },
-    { headers: { 'Authorization': `Api-Key ${apiKey}` } }
+    { headers: { 'Authorization': authorization } }
   );
 
   const now = DateTime.local().toISO();

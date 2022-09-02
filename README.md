@@ -40,8 +40,8 @@ sequenceDiagram
   "apiUrl": {
     "S": "jema-smartlockのRESTful APIのURL"
   },
-  "apiKey": {
-    "S": "jema-smartlockのRESTful APIのAPIキー"
+  "authorization": {
+    "S": "Authorizationヘッダに設定する値"
   },
   "name": {
     "S": "デバイス名(任意)"
